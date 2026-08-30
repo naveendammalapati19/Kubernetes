@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: no-tol-example
+  labels: 
+    app: no-tol
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: no-tol
+  template:
+    metadata:
+      labels:
+        app: no-tol
+    spec:
+      containers:
+      - name: no-tol
+        image: nginx
+        ports:
+        - containerPort: 80
